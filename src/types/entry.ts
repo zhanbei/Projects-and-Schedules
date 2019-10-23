@@ -18,7 +18,7 @@ export type IMixedEntry = IProject | IModule | ITask | IStep | ISolution;
 export type ObjectId = string;
 
 export interface IBaseEntry {
-	_id: ObjectId;
+	_id?: ObjectId;
 
 	name: string;
 	// Task goals and details.
@@ -48,7 +48,7 @@ export interface IBaseEntry {
 	extra?: string[];
 
 	// The real deadline.
-	deadline: number;
+	deadline?: number;
 	// Predicted schedule with predicted deadline.
 	predicted?: ISchedule;
 	// Real schedule with real deadline.

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title><%= title %></title>
+	<title>Recent Tasks</title>
 	<style>
 		.link {fill: none;stroke: #666;stroke-width: 1.5px;}
 		.node circle {fill: #ccc;stroke: #fff;stroke-width: 1.5px;}
@@ -12,7 +12,88 @@
 </head>
 <body>
 <script>
-var links = <%- JSON.stringify(links, undefined, minified ? undefined : '\t') %>;
+var links = [
+	{
+		"source": "Biziy Document Center",
+		"target": "Design and Develop the Content"
+	},
+	{
+		"source": "Deploy the Static Document Site",
+		"target": "Deploy the Nginx Server"
+	},
+	{
+		"source": "Deploy the Static Document Site",
+		"target": "Design and implement the Upgrading Policies"
+	},
+	{
+		"source": "Deploy the Static Document Site",
+		"target": "Simplified Version Site"
+	},
+	{
+		"source": "Upgrade the Site Generator",
+		"target": "Upgrade the Index Rules"
+	},
+	{
+		"source": "Generate Static Site from Markdown Files",
+		"target": "Upgrade the Site Generator"
+	},
+	{
+		"source": "Support New Features",
+		"target": "Navigator"
+	},
+	{
+		"source": "Generate Static Site from Markdown Files",
+		"target": "Support New Features"
+	},
+	{
+		"source": "Generate Static Site from Markdown Files",
+		"target": "Navigate on the Similar Products"
+	},
+	{
+		"source": "Deploy the Static Document Site",
+		"target": "Generate Static Site from Markdown Files"
+	},
+	{
+		"source": "Biziy Document Center",
+		"target": "Deploy the Static Document Site"
+	},
+	{
+		"source": "Biziy Document Center",
+		"target": "Share the articles with permanent link?"
+	},
+	{
+		"source": "Biziy Document Center",
+		"target": "How to Collaborate for Newbies?"
+	},
+	{
+		"source": "Biziy Document Center",
+		"target": "Update Content and Deploy Site Frequently"
+	},
+	{
+		"source": "Biziy Document Center",
+		"target": "Upgrade the #Site-Generator Used Often"
+	},
+	{
+		"source": "Projects and Schedules",
+		"target": "Initializing Project"
+	},
+	{
+		"source": "Projects and Schedules",
+		"target": "Typing Entities and Develop Their Relations"
+	},
+	{
+		"source": "Projects and Schedules",
+		"target": "Documenting"
+	},
+	{
+		"source": "Requirements and Designs",
+		"target": "Think about the problems about delaying and multiple schedules."
+	},
+	{
+		"source": "Projects and Schedules",
+		"target": "Requirements and Designs"
+	}
+];
 </script>
 <script>
 	// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/

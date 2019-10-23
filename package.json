@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
 	"start": "tsc && node ts-dist/demo",
+	"run": "node ts-dist/demo",
 	"test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

@@ -4,13 +4,16 @@
 	<meta charset="UTF-8">
 	<title><%= title %></title>
 	<style>
-		.link {fill: none;stroke: #666;stroke-width: 1.5px;}
-		.node circle {fill: #ccc;stroke: #fff;stroke-width: 1.5px;}
-		text {font: 10px sans-serif;pointer-events: none;}
+		html, body {width: 100%; height: 100%; padding: 0; margin: 0;}
+		svg {background: #fafafa; border-radius: 12px;}
+		.link {fill: none; stroke: #666; stroke-width: 1.5px;}
+		.node circle {fill: #0b9; stroke: #fff; stroke-width: 1.5px;}
+		text {font: 16px sans-serif; pointer-events: none;}
 	</style>
 	<script src="https://d3js.org/d3.v3.min.js"></script>
 </head>
 <body>
+<!--<svg id="i-svg" width="1900px" height="1000px" style="min-width: 1900px; min-height: 1000px; width: 190%; height: 100%;"/>-->
 <script>
 var links = <%- JSON.stringify(links, undefined, minified ? undefined : '\t') %>;
 </script>
@@ -25,14 +28,15 @@ var links = <%- JSON.stringify(links, undefined, minified ? undefined : '\t') %>
 		link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 	});
 
-	var width = 960, height = 500;
+	// var width = '100%', height = '100%';
+	var width = 1920 - 10, height = 1080 - 30;
 
 	var force = d3.layout.force()
 		.nodes(d3.values(nodes))
 		.links(links)
 		.size([width, height])
-		.linkDistance(60)
-		.charge(-300)
+		.linkDistance(130) //60
+		.charge(-700) //-300
 		.on('tick', tick)
 		.start();
 
@@ -49,8 +53,9 @@ var links = <%- JSON.stringify(links, undefined, minified ? undefined : '\t') %>
 		.data(force.nodes())
 		.enter().append('g')
 		.attr('class', 'node')
-		.on('mouseover', mouseover)
-		.on('mouseout', mouseout)
+		.on('click', nodeclicked)
+		// .on('mouseover', mouseover)
+		// .on('mouseout', mouseout)
 		.call(force.drag);
 
 	node.append('circle')
@@ -82,6 +87,37 @@ var links = <%- JSON.stringify(links, undefined, minified ? undefined : '\t') %>
 		d3.select(this).select('circle').transition()
 			.duration(750)
 			.attr('r', 8);
+	}
+
+	function nodeclicked() {
+		var r = d3.select(this).select('circle').attr('r');
+		if (r == 24) {
+			d3.select(this).select('circle').transition()
+				.duration(750)
+				.attr('r', 20)
+				.transition()
+				.duration(750)
+				.attr('r', 24);
+		} else if (r > 18) {
+			d3.select(this).select('circle').attr('style', 'fill: orange').transition()
+				.duration(750)
+				.attr('r', 8);
+		} else if (r > 12) {
+			d3.select(this).select('circle').attr('style', 'fill: green').transition()
+				.duration(750)
+				.attr('r', 24);
+		} else if (r > 10) {
+			d3.select(this).select('circle').attr('style', 'fill: darkorange').transition()
+				.duration(750)
+				.attr('r', 8);
+		} else {
+			d3.select(this).select('circle').transition()
+				.duration(750)
+				.attr('r', 16)
+				.transition()
+				.duration(750)
+				.attr('r', 12);
+		}
 	}
 </script>
 

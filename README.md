@@ -29,6 +29,32 @@ The management for networked schedules and projects, and even issues if possible
 
 	 Entries are treed structure, can be networked with dependencies.
 
+Supported Sets
+
+- Project
+	- Project
+	- Partial Project
+- Module
+	- Module
+	- Partial Module
+	- Session
+- Task
+	- Task
+	- Step
+- Others
+	- Issue
+	- Solution
+	- Research
+
+Accessories
+
+- Tags
+- Dev-Terms
+- Members
+- Roles
+- Comments
+- Subscribers
+
 ## Relations
 
 Current relations are one of [ "Has" | "Depends" ].
@@ -56,7 +82,7 @@ Current relations are one of [ "Has" | "Depends" ].
 - Solution
 	- Has `Mixed-Entries`
 	- Depends on Other `Mixed-Entries`
-- Researches
+- Research
 	- Has `Mixed-Entries`
 	- Depends on Other `Mixed-Entries`
 
@@ -85,6 +111,44 @@ Current relations are one of [ "Has" | "Depends" ].
 | --- | --- | --- |
 | Pre-researches Necessary | first | 1. Enrich the designs <br> 2. Confirm the schedules |
 | Inspirations Marked | later or when being free | 1. Refine the designs. |
+
+## Scheduling & Controlling
+
+Predicted Deadline > Deadline
+
+- Simple Schedule
+
+	 Tasks can be accomplished through discontinuous hours during discontinuous days.
+	 Hence the `total` duration is not the same with the `to` - `from`.
+
+	- Total
+	- From
+	- To
+	- Deadline
+- Predicted `predicted`
+
+	 Predicted schedule with predicted deadline.
+
+	- `Simple Schedule`
+- Real `real`
+
+	 Real schedules with real deadline.
+
+	- `Simple Schedule`
+- Historically Predicted Times `predictions`
+	- `Simple Schedules`
+- Historically Real Times `reals` `histories`
+
+	 A task may be developed during several development terms,
+	 or there is no allocated development terms at all.
+
+	 Records of real historical developments times.
+
+	- `Simple Schedules`
+- Deadline `deadline`
+	- Real Deadline
+- Importance `importance`
+	- `[1-10]`
 
 ## References
 

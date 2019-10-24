@@ -89,6 +89,15 @@ Current relations are one of [ "Has" | "Depends" ].
 
 ## Visualizations
 
+- Tree Views
+	- Treed Lists
+	- Mind Map
+	- [Interactive d3.js tree diagram - bl.ocks.org](http://bl.ocks.org/d3noob/8375092)
+	- [D3.js Drag and Drop, Zoomable, Panning, Collapsible Tree with auto-sizing. - bl.ocks.org](http://bl.ocks.org/robschmuecker/7880033)
+- Graphs & Networks
+	- [Force-Directed Graph with Mouseover - bl.ocks.org](http://bl.ocks.org/mbostock/2706022)
+	- [Directed Graph Editor - bl.ocks.org](http://bl.ocks.org/rkirsling/5001347)
+
 ## Definitions
 
 ### Research
@@ -167,8 +176,8 @@ Predicted Deadline > Deadline
 ## References
 
 - Principles and Concepts
-- [Project management - Wikipedia](https://en.wikipedia.org/wiki/Project_management)
-- [项目管理（管理学分支的学科） - 百度百科](https://baike.baidu.com/item/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/85389)
+	- [Project management - Wikipedia](https://en.wikipedia.org/wiki/Project_management)
+	- [项目管理（管理学分支的学科） - 百度百科](https://baike.baidu.com/item/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/85389)
 	- [看板 - 百度百科](https://baike.baidu.com/item/%E7%9C%8B%E6%9D%BF/10642946)
 	- [看板管理 - 百度百科](https://baike.baidu.com/item/%E7%9C%8B%E6%9D%BF%E7%AE%A1%E7%90%86/6725621)
 	- [思维导图（表达发散性思维的有效图形思维工具） - 百度百科](https://baike.baidu.com/item/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/563801)
@@ -180,6 +189,7 @@ Predicted Deadline > Deadline
 	- [Redmine](https://www.redmine.org/)
 - Assistants/Visualizations
 	- [mindmap - Github Search](https://github.com/search?o=desc&q=mindmap&s=stars&type=Repositories)
+	- [Popular Blocks - bl.ocks.org](https://bl.ocks.org/)
 	- [XMind - Mind Mapping Software](https://www.xmind.net/)
 	 <sup>[Chinese](https://www.xmind.cn/)</sup>
 	- [draw.io – Online Diagramming](https://about.draw.io/)

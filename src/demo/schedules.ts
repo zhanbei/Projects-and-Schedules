@@ -1,6 +1,6 @@
 'use strict';
 
-import {toD3NetworkHtml} from '../exporters/to-d3-network';
+import {toD3NetworkHtml, toD3TreeHtml} from '../exporters/to-d3-network';
 import {convertToMarkdown} from '../exporters/to-markdown';
 import {newProject} from '../types/project';
 import {projectDocumentCenter} from './biziy-document-center';
@@ -26,3 +26,4 @@ console.log(md);
 console.log('schedules:', JSON.stringify(projects));
 
 toD3NetworkHtml(project, {distributed: true});
+toD3TreeHtml(project, {distributed: true});

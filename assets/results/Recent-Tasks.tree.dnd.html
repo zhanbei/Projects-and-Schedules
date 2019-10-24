@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title><%= title %></title>
+	<title>Recent Tasks</title>
 	<style type="text/css">
 		.node {cursor: pointer;}
 		.overlay {background-color: #EEE;}
@@ -22,7 +22,161 @@
 
 <!-- Data source or custom scripts are here. -->
 <script>
-var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %>;
+var $_data = {
+	"name": "Recent Tasks",
+	"children": [
+		{
+			"name": "Biziy Document Center",
+			"children": [
+				{
+					"name": "Design and Develop the Content"
+				},
+				{
+					"name": "Deploy the Static Document Site",
+					"children": [
+						{
+							"name": "Deploy the Nginx Server"
+						},
+						{
+							"name": "Design and implement the Upgrading Policies"
+						},
+						{
+							"name": "Simplified Version Site"
+						},
+						{
+							"name": "Generate Static Site from Markdown Files"
+						}
+					]
+				},
+				{
+					"name": "Share the articles with permanent link?"
+				},
+				{
+					"name": "How to Collaborate for Newbies?"
+				},
+				{
+					"name": "Update Content and Deploy Site Frequently"
+				},
+				{
+					"name": "Upgrade the #Site-Generator Used Often"
+				}
+			]
+		},
+		{
+			"name": "Generate Static Site from Markdown Files",
+			"children": [
+				{
+					"name": "Upgrade the Site Generator",
+					"children": [
+						{
+							"name": "Upgrade the Index Rules"
+						}
+					]
+				},
+				{
+					"name": "Support New Features",
+					"children": [
+						{
+							"name": "Navigator"
+						}
+					]
+				},
+				{
+					"name": "Navigate on the Similar Products"
+				}
+			]
+		},
+		{
+			"name": "Projects and Schedules",
+			"children": [
+				{
+					"name": "Initializing Project"
+				},
+				{
+					"name": "Typing Entities and Develop Their Relations"
+				},
+				{
+					"name": "Documenting"
+				},
+				{
+					"name": "Requirements and Designs",
+					"children": [
+						{
+							"name": "Think about the problems about delaying and multiple schedules."
+						}
+					]
+				},
+				{
+					"name": "Designing Entry Properties",
+					"children": [
+						{
+							"name": "Done Status"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Developers Playground",
+			"children": [
+				{
+					"name": "Available Applications",
+					"children": [
+						{
+							"name": "Matches and Shuffling"
+						},
+						{
+							"name": "Text Tailor"
+						}
+					]
+				},
+				{
+					"name": "Tracking Usage",
+					"children": [
+						{
+							"name": "Find the targeted solution"
+						}
+					]
+				},
+				{
+					"name": "Shuffling"
+				},
+				{
+					"name": "Text Tailor"
+				}
+			]
+		},
+		{
+			"name": "Web Assistant",
+			"children": [
+				{
+					"name": "Bookmarks Management",
+					"children": [
+						{
+							"name": "CRUD for Bookmarks"
+						}
+					]
+				},
+				{
+					"name": "Custom Scripts",
+					"children": [
+						{
+							"name": "CRUD for Custom Scripts"
+						}
+					]
+				},
+				{
+					"name": "[REQUIREMENTS] Use Case",
+					"children": [
+						{
+							"name": "Export references of several similar pages."
+						}
+					]
+				}
+			]
+		}
+	]
+};
 </script>
 
 <!-- D3.js Drag and Drop, Zoomable, Panning, Collapsible Tree with auto-sizing. -->

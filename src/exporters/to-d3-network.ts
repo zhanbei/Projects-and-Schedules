@@ -3,7 +3,7 @@
 import {IMixedEntry} from '../types/entry';
 import {toD3NetworkMouseover} from './to-d3-network-mouseover';
 import {toD3TreeInteractive} from './to-d3-tree-interactive';
-import {renderInteractiveTree, renderNetwork} from './with-ejs';
+import {renderIntegratedTree, renderInteractiveTree, renderNetwork} from './with-ejs';
 
 interface IOptions {
 	title?: string;
@@ -44,13 +44,15 @@ export const toD3TreeHtml = (entry: IMixedEntry, {title, filename, extra, distri
 	const nodes = toD3TreeInteractive(entry);
 
 	filename = filename || entry.name;
-	filename = filename.replace(/\s+/g, '-') + '.tree.html';
+	filename = filename.replace(/\s+/g, '-');
 
-	renderInteractiveTree(filename, {
+	const options = {
 		title: title || entry.name,
 		$data: nodes,
 		distributed,
 		minified,
 		...extra,
-	});
+	};
+	renderInteractiveTree(filename + '.tree.toggle.html', options);
+	renderIntegratedTree(filename + '.tree.dnd.html', options);
 };

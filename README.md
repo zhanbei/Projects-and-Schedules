@@ -90,6 +90,8 @@ Current relations are one of [ "Has" | "Depends" ].
 
 ## Visualizations
 
+Diagrams:
+
 - Tree Views
 	- Treed Lists
 	- Mind Map
@@ -98,6 +100,40 @@ Current relations are one of [ "Has" | "Depends" ].
 - Graphs & Networks
 	- [Force-Directed Graph with Mouseover - bl.ocks.org](http://bl.ocks.org/mbostock/2706022)
 	- [Directed Graph Editor - bl.ocks.org](http://bl.ocks.org/rkirsling/5001347)
+
+Styling:
+
+- Entry Type
+	- Set = Project
+		- Bold and Big Name
+	- Set = Module
+		- Bold and Big Name
+- Indexed Names
+	- Set = Step
+		- Name = `(index+1) + '. ' + name`
+- Colored Circle
+	- By Projects
+	- Task Types = [ Research | Development | Testing ]
+	- Task Status = [ Alarm | Warning | Normal | Good | Great ] `Colored Circle or Text`
+- Task Importance
+	- Bold Text
+	- Colored Text or Circle
+- Progress
+	- Use Number in Circle
+	- Use Half-filled Color
+	- Use Icon Filled
+
+Interacting:
+
+- Entry Editor
+	- [ ] Scheduling
+	- [ ] Comments
+	- [ ] Commitment
+- Filtering By
+	- [ ] Projects
+	- [ ] Members
+	- [ ] Development Terms
+
 
 ## Definitions
 

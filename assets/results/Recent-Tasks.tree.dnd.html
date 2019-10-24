@@ -4,10 +4,11 @@
 	<meta charset="UTF-8">
 	<title>Recent Tasks</title>
 	<style type="text/css">
+		html, body {width: 100%; height: 100%; padding: 0; margin: 0;}
 		.node {cursor: pointer;}
 		.overlay {background-color: #EEE;}
 		.node circle {fill: #fff;stroke: steelblue;stroke-width: 1.5px;}
-		.node text { font-size: 10px; font-family: sans-serif; }
+		.node text { font-size: 12px; font-family: sans-serif; }
 		.link { fill: none; stroke: #ccc; stroke-width: 1.5px; }
 		.templink { fill: none; stroke: red; stroke-width: 3px; }
 		.ghostCircle.show { display: block; }
@@ -230,8 +231,8 @@ var $_data = {
 	var root;
 
 	// size of the diagram
-	var viewerWidth = $(document).width();
-	var viewerHeight = $(document).height();
+	var viewerWidth = $(document).width() - 10;
+	var viewerHeight = $(document).height() - 10;
 
 	var tree = d3.layout.tree()
 		.size([viewerHeight, viewerWidth]);
@@ -576,7 +577,7 @@ var $_data = {
 
 		// Set widths between levels based on maxLabelLength.
 		nodes.forEach(function (d) {
-			d.y = (d.depth * (maxLabelLength * 10)); //maxLabelLength * 10px
+			d.y = (d.depth * (maxLabelLength * 5)); //maxLabelLength * 10px
 			// alternatively to keep a fixed scale one can set a fixed depth per level
 			// Normalize for fixed-depth by commenting out below line
 			// d.y = (d.depth * 500); //500px per level.

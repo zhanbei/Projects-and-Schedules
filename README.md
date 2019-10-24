@@ -112,6 +112,20 @@ Current relations are one of [ "Has" | "Depends" ].
 | Pre-researches Necessary | first | 1. Enrich the designs <br> 2. Confirm the schedules |
 | Inspirations Marked | later or when being free | 1. Refine the designs. |
 
+### Progress(Done or Not)
+
+- Done
+- Started( with Progress)
+- Not
+
+With clear goals, a task can be marked as done or not,
+or partially done with a progress.
+
+While there is no clear goals, often for kinds of researches,
+a task cannot be simply marked done or not;
+hence practices are needed to evaluate the results and consider whether to push forward.
+(BTW, at least two members may be better scheduled for fuzzy tasks, to make the results trustful.)
+
 ## Scheduling & Controlling
 
 Predicted Deadline > Deadline

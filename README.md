@@ -121,6 +121,8 @@ Current relations are one of [ "Has" | "Depends" ].
 | Pre-researches Necessary | first | 1. Enrich the designs <br> 2. Confirm the schedules |
 | Inspirations Marked | later or when being free | 1. Refine the designs. |
 
+### Scheduling & Controlling
+
 ### Progress(Done or Not)
 
 - Done
@@ -135,7 +137,7 @@ a task cannot be simply marked done or not;
 hence practices are needed to evaluate the results and consider whether to push forward.
 (BTW, at least two members may be better scheduled for fuzzy tasks, to make the results trustful.)
 
-## Scheduling & Controlling
+#### Schedules
 
 Predicted Deadline > Deadline
 
@@ -172,6 +174,24 @@ Predicted Deadline > Deadline
 	- Real Deadline
 - Importance `importance`
 	- `[1-10]`
+
+#### Progress and Deadline
+
+- Exceeded and Undone > Behind Schedule > Normal >
+Ahead of Schedule > Done Ahead of Schedule
+- <span style='color:red;'>Alarm</span> >
+<span style='color:orange;'>Warning</span> >
+Normal >
+<span style='color:#090;'>Good</span> >
+<span style='color:#0d0;'>Great</span>
+- Sad > Considering > Smile
+
+| Status | Started | Half | Close | Exceeded |
+| :---: | :---: | :---: | :---: | :---: |
+| Started | Normal | <span style='color:orange;'>Warning</span> | <span style='color:red;'>Alarm</span> | <span style='color:red;'>Alarm</span> |
+| Half | <span style='color:#090;'>Good</span> | Normal | <span style='color:orange;'>Warning</span> | <span style='color:red;'>Alarm</span> |
+| Done | <span style='color:#0f0;'>Great</span> | <span style='color:#0f0;'>Great</span> | <span style='color:#090;'>Good</span> | <span style='color:orange;'>Warning</span> |
+
 
 ## References
 

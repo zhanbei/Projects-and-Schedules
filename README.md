@@ -152,5 +152,21 @@ Predicted Deadline > Deadline
 
 ## References
 
+- Principles and Concepts
 - [Project management - Wikipedia](https://en.wikipedia.org/wiki/Project_management)
 - [项目管理（管理学分支的学科） - 百度百科](https://baike.baidu.com/item/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/85389)
+	- [看板 - 百度百科](https://baike.baidu.com/item/%E7%9C%8B%E6%9D%BF/10642946)
+	- [看板管理 - 百度百科](https://baike.baidu.com/item/%E7%9C%8B%E6%9D%BF%E7%AE%A1%E7%90%86/6725621)
+	- [思维导图（表达发散性思维的有效图形思维工具） - 百度百科](https://baike.baidu.com/item/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/563801)
+- Projects Management and Collaboration Tools
+	- [TAPD | 敏捷开发 项目管理 腾讯敏捷产品研发平台](https://www.tapd.cn/)
+	- [Teambition | Team Collaboration Solutions](https://www.teambition.com/)
+- Issue Trackers
+	- [About Issues - GitHub Help](https://help.github.com/en/github/managing-your-work-on-github/about-issues)
+	- [Redmine](https://www.redmine.org/)
+- Assistants/Visualizations
+	- [mindmap - Github Search](https://github.com/search?o=desc&q=mindmap&s=stars&type=Repositories)
+	- [XMind - Mind Mapping Software](https://www.xmind.net/)
+	 <sup>[Chinese](https://www.xmind.cn/)</sup>
+	- [draw.io – Online Diagramming](https://about.draw.io/)
+	- [ProcessOn - Create diagrams, Flowchart, Mindmap online in real-time!](https://www.processon.com/)

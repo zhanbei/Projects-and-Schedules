@@ -48,6 +48,7 @@ Supported Sets
 
 Accessories
 
+- Progress
 - Tags
 - Dev-Terms
 - Members
@@ -123,11 +124,29 @@ Current relations are one of [ "Has" | "Depends" ].
 
 ### Scheduling & Controlling
 
-### Progress(Done or Not)
+#### Progress(Done or Not)
 
-- Done
-- Started( with Progress)
-- Not
+- Not(0)
+- Started(10)
+- Partial(30)
+- Half(50)
+- Most(70)
+- Almost(90)
+- Done(100)
+
+Rating Values @see https://material-ui.com/components/rating/
+
+- `[ 0/1 - 5 ]` => `3[1, 3, 5], 5/6`
+	- Stars range from `0/1` to `5`.
+- `[ -5 - 5 ]` => `3[-5, 0, 5], 11`
+- `[ 0, 1 - 9, 10 ]` => `3[0/1, 5, 9/10], 4[2, 4, 6, 8], 5[1, 3, 5, 7, 9], 9, 11`
+	- Stars range from `0, 0.5` to `4.5, 5`.
+- `[ 0 - 100 ]` => `3, 4, 5, 9, 11, 99, 100, 101`
+	- Like percentage, support percentage of numbers.
+- `85.5` => `any`
+	- Store float value directly.
+- `"85.5%"` => `any`
+	- Store string value directly.
 
 With clear goals, a task can be marked as done or not,
 or partially done with a progress.
@@ -188,9 +207,9 @@ Normal >
 
 | Status | Started | Half | Close | Exceeded |
 | :---: | :---: | :---: | :---: | :---: |
-| Started | Normal | <span style='color:orange;'>Warning</span> | <span style='color:red;'>Alarm</span> | <span style='color:red;'>Alarm</span> |
-| Half | <span style='color:#090;'>Good</span> | Normal | <span style='color:orange;'>Warning</span> | <span style='color:red;'>Alarm</span> |
-| Done | <span style='color:#0f0;'>Great</span> | <span style='color:#0f0;'>Great</span> | <span style='color:#090;'>Good</span> | <span style='color:orange;'>Warning</span> |
+| **Started** | Normal | <span style='color:orange;'>Warning</span> | <span style='color:red;'>Alarm</span> | <span style='color:red;'>Alarm</span> |
+| **Half** | <span style='color:#090;'>Good</span> | Normal | <span style='color:orange;'>Warning</span> | <span style='color:red;'>Alarm</span> |
+| **Done** | <span style='color:#0f0;'>Great</span> | <span style='color:#0f0;'>Great</span> | <span style='color:#090;'>Good</span> | <span style='color:orange;'>Warning</span> |
 
 
 ## References

@@ -4,13 +4,17 @@ import {toD3NetworkHtml} from '../exporters/to-d3-network';
 import {convertToMarkdown} from '../exporters/to-markdown';
 import {newProject} from '../types/project';
 import {projectDocumentCenter} from './biziy-document-center';
+import {pjDevelopersPlayground} from './developers-playground';
 import {projectMarkdownSiteGenerator} from './markdown-site-generator';
 import {projectProjectsAndSchedules} from './projects-and-schedules';
+import {pjWebAssistant} from './web-assistant';
 
 const projects = [
 	projectDocumentCenter,
 	projectMarkdownSiteGenerator,
 	projectProjectsAndSchedules,
+	pjDevelopersPlayground,
+	pjWebAssistant,
 ];
 
 const project = newProject('Recent Tasks', projects,

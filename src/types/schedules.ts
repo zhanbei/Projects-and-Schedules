@@ -13,8 +13,12 @@ export interface IDevTerms {
 }
 
 export interface ISchedule {
+	// The expected duration calculated.
 	total: string;
 	from?: number;
 	to?: number;
 	deadline?: number;
 }
+
+export const newSchedule = (total: string, deadline?: number, from?: number, to?: number): ISchedule => ({total, deadline, from, to});
+newSchedule('2h');

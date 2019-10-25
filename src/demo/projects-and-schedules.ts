@@ -3,7 +3,12 @@
 import {newModule} from '../types/modules';
 import {newProject} from '../types/project';
 import {newResearch} from '../types/research';
+import {newSchedule} from '../types/schedules';
+import {newStep} from '../types/steps';
 import {newTask} from '../types/task';
+
+export const s = newSchedule('2h');
+export const s2 = newSchedule('2h', +new Date('2019-10-25'));
 
 export const projectProjectsAndSchedules = newProject('Projects and Schedules', [
 	// Done
@@ -18,4 +23,15 @@ export const projectProjectsAndSchedules = newProject('Projects and Schedules', 
 	newModule('Designing Entry Properties', [
 		newTask('Done Status', 'see #Documents'),
 	]),
+	newModule('[VISUALIZATION] Checkout MindMaps', [
+		newTask('Investigating Naotu', '', [
+			newStep('Run Offline and Investigate Naotu'),
+			newStep('Customizing'),
+		]),
+		newTask('Checkout Other Mind Maps', '', [
+			newStep('Choose Applications'),
+			newStep('101 Investigating'),
+			newStep('Customizing'),
+		]),
+	], 'Use mind maps to visualize the current tasks, and even to edit(click with dialog editor).'),
 ], 'Projects management with schedules.');

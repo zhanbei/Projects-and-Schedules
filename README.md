@@ -19,7 +19,9 @@ Titles:
 ```
 -->
 
-The management for networked schedules and projects, and even issues if possible.
+The management for networked projects with schedules;
+supported by interactive visualizations and editors.
+<!-- The management for networked schedules and projects, and even issues if possible. -->
 
 ## Declarations
 
@@ -59,6 +61,15 @@ Accessories
 ## Relations
 
 Current relations are one of [ "Has" | "Depends" ].
+
+It may be nonsense to classify entries strictly as `Projects`, `Modules`, or `Tasks`,
+since people with different backgrounds tend to call the same thing differently,
+like your so-called projects may often be modules of other projects.
+Still it is needed to distinguish the differences,
+as for different principles stand for different amount to resources(time) needed --
+expectations are attached along with the entities.
+Projects are treated importantly, than modules,
+and hence the same way, modules are relatively important than tasks.
 
 - Project
 
@@ -192,19 +203,68 @@ a task cannot be simply marked done or not;
 hence practices are needed to evaluate the results and consider whether to push forward.
 (BTW, at least two members may be better scheduled for fuzzy tasks, to make the results trustful.)
 
+#### Basic Schedule
+
+Tasks can be accomplished through discontinuous hours during discontinuous days.
+Hence the `total` duration is not the same with the `to` - `from`.
+
+**Total**
+
+- Estimated time needed to accomplished the target task,
+in hours or in days.
+- For a regular task, if several days may be required,
+it is better to have steps, which in counted in hours.
+- In hours, the value may be `2h`;
+
+**Deadline**
+
+- The Product/Project Managers or the principals do care about the deadline.
+- Tasks with estimated time or not are scheduled in particular orders,
+and hence the deadlines are estimated with reasons or not.
+- Tasks are often overdue because of the scheduling and controlling.
+	- As the tasks involved got enriched, extra works will be involved as well.
+		- Experiences as well as infrastructures can sometimes help this kind of similar cases.
+	- Tasks important or urgent may be scheduled first, postponing others behind.
+- A specific task may be scheduled in a particular time
+
+**Time Range**
+
+The real scheduled time:
+when the task are estimated to start
+
+- From
+- ~~Duration~~
+	- How long does the tasks last(, counting the work hours from workdays only).
+- To
+
+**Updated-Time**
+
+No update are permitted, use actions instead.
+
+A complete schedule are not allowed to be modified, or even enriched,
+because these operations reduce information, which tracks the target task.
+Appending and overriding will be used on the back-end,
+while latest actions will be emphasized on the front-end.
+
+**Created-Time**
+
+The time of the target schedule being created.
+
+**Author**
+
+Who made this action(, and when/Created-Time)?
+
 #### Schedules
 
 Predicted Deadline > Deadline
 
-- Simple Schedule
+Tasks may be ranked to be accomplished in orders,
+without actually schedule the real time.
+The latter tasks, however, are risky to be postponed or overdue,
+because the risks are superimposed.
 
-	 Tasks can be accomplished through discontinuous hours during discontinuous days.
-	 Hence the `total` duration is not the same with the `to` - `from`.
+> FIX-ME Development Patterns are to be Researched Steps Further.
 
-	- Total
-	- From
-	- To
-	- Deadline
 - Predicted `predicted`
 
 	 Predicted schedule with predicted deadline.

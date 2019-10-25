@@ -169,7 +169,81 @@ Interacting:
 | Pre-researches Necessary | first | 1. Enrich the designs <br> 2. Confirm the schedules |
 | Inspirations Marked | later or when being free | 1. Refine the designs. |
 
+## Entity
+
+- Name
+- Description
+- Content
+- Draft
+- Attachments
+- Parent
+- *Category*
+- Milestones / Iterations / Development Term
+- *Priority*
+- *Optionality*
+- *Assignees*
+- Estimated Start Date
+- Estimated Due Date
+- Credential
+- Closed
+- *Labels/Tags*
+
+### Category
+
+Treed Categories
+
+- Name
+- Parent
+
+### Milestone
+
+- Name
+- Description
+- Start Date
+- Due Date
+
+Resolves
+
+- Referred Issues
+	- Unstarted
+	- Ongoing
+	- Completed
+- Referred Pull Requests
+	- ...
+
+### Attachment
+
+- Upload with Markdown URL
+
+### Label/Tag
+
+- Name
+- Description
+- Color
+
 ### Scheduling & Controlling
+
+- Priority
+- Optionality
+- Urgency / Time
+- Progress
+- Schedules
+
+#### Priority
+
+- Label
+- Value `[0-100]`
+
+#### Optionality
+
+> What's the differences between the importance and optionality(, and urgency)?
+
+- Required == Important !== urgent
+- Optional(Nice to Have) == Unimportant
+
+#### Urgency
+
+Deadline is used to represent the urgency of the specific task.
 
 #### Progress(Done or Not)
 
@@ -190,6 +264,8 @@ Rating Values @see https://material-ui.com/components/rating/
 	- Stars range from `0, 0.5` to `4.5, 5`.
 - `[ 0 - 100 ]` => `3, 4, 5, 9, 11, 99, 100, 101`
 	- Like percentage, support percentage of numbers.
+- `[ 10000 - 20000 ]` => `[0.00% - 100.00%]`
+	- Like percentage, support float numbers.
 - `85.5` => `any`
 	- Store float value directly.
 - `"85.5%"` => `any`

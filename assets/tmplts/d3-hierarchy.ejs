@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>A Common HTML Page as for Template</title>
+	<title><%= title %></title>
 	<style>
 		html, body {width: 100%; height: 100%; padding: 0; margin: 0;}
 		/* Some Styles */
@@ -15,16 +15,7 @@
 
 <!-- Custom scripts are here. -->
 <script>
-	var $_data = {
-		'name': 'Root', 'children': [
-			{'name': 'A', 'children': [{'name': 'A-1'}, {'name': 'A-2'}, {'name': 'A-3'}, {'name': 'A-4'}, {'name': 'A-5'}]},
-			{'name': 'B', 'children': [{'name': 'B-1'}]},
-			{'name': 'C'},
-			{'name': 'D', 'children': [{'name': 'D-1'}, {'name': 'D-2'}, {'name': 'D-3', 'children': [{'name': 'D-3-i'}, {'name': 'D-3-ii'}]}]},
-			{'name': 'E'},
-			{'name': 'F'},
-		],
-	};
+var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %>;
 </script>
 
 <!-- @see https://gist.github.com/Andrew-Reid/c7ae41a98b8cbb38f1febf13deb9d294 -->

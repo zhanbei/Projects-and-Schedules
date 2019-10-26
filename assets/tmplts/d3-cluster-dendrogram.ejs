@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>A Common HTML Page as for Template</title>
+    <title><%= title %></title>
 	<style>
 		html, body {width: 100%; height: 100%; padding: 0; margin: 0;}
 		/* Some Styles */
@@ -16,43 +16,7 @@
 
 <!-- Custom scripts are here. -->
 <script>
-	var $_data = {
-		'name': 'flare',
-		'children': [{
-			'name': 'analytics',
-			'children': [{
-				'name': 'cluster',
-			}, {
-				'name': 'graph',
-				'children': [{
-					'name': 'BetweennessCentrality',
-				}, {
-					'name': 'LinkDistance',
-				}],
-			}, {
-				'name': 'optimization',
-				'children': [{
-					'name': 'AspectRatioBanker',
-				}],
-			}],
-		}, {
-			'name': 'animate',
-			'children': [{
-				'name': 'Easing',
-			}, {
-				'name': 'FunctionSequence',
-			}, {
-				'name': 'interpolate',
-				'children': [{
-					'name': 'ArrayInterpolator',
-				}, {
-					'name': 'RectangleInterpolator',
-				}],
-			}, {
-				'name': 'Tween',
-			}],
-		}],
-	};
+var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %>;
 </script>
 
 <!-- @see https://observablehq.com/@d3/cluster-dendrogram -->

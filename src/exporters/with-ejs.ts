@@ -7,6 +7,8 @@ const ejs = require('ejs');
 const PATH_ASSETS = path.join(__dirname, '../../assets');
 const PATH_ASSETS_TMPLTS = path.join(PATH_ASSETS, 'tmplts');
 const PATH_TMPLT_D3_NETWORK = path.join(PATH_ASSETS_TMPLTS, 'd3-network.ejs');
+const PATH_TMPLT_D3_HIERARCHY = path.join(PATH_ASSETS_TMPLTS, 'd3-hierarchy.ejs');
+const PATH_TMPLT_D3_CLUSTER_DENDROGRAM = path.join(PATH_ASSETS_TMPLTS, 'd3-cluster-dendrogram.ejs');
 const PATH_TMPLT_D3_INTERACTIVE_TREE = path.join(PATH_ASSETS_TMPLTS, 'd3-tree-interactive.ejs');
 const PATH_TMPLT_D3_INTEGRATED_TREE = path.join(PATH_ASSETS_TMPLTS, 'd3-tree-editable.ejs');
 const PATH_ASSETS_RESULTS = path.join(PATH_ASSETS, 'results');
@@ -33,6 +35,14 @@ const renderHtml = (templateFilename: string, data: any, htmlFilename: string): 
 
 export const renderNetwork = (data: any, fileOutput: string): string => {
 	return renderHtml(PATH_TMPLT_D3_NETWORK, data, fileOutput);
+};
+
+export const renderHierarchyDiagrams = (fileOutput: string, data: any): string => {
+	return renderHtml(PATH_TMPLT_D3_HIERARCHY, data, fileOutput);
+};
+
+export const renderClusterDendrogram = (fileOutput: string, data: any): string => {
+	return renderHtml(PATH_TMPLT_D3_CLUSTER_DENDROGRAM, data, fileOutput);
 };
 
 export const renderInteractiveTree = (fileOutput: string, data: any): string => {

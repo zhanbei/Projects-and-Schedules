@@ -3,7 +3,7 @@
 import {IMixedEntry} from '../types/entry';
 import {toD3NetworkMouseover} from './to-d3-network-mouseover';
 import {toD3TreeInteractive} from './to-d3-tree-interactive';
-import {renderIntegratedTree, renderInteractiveTree, renderNetwork} from './with-ejs';
+import {renderClusterDendrogram, renderHierarchyDiagrams, renderIntegratedTree, renderInteractiveTree, renderNetwork} from './with-ejs';
 
 interface IOptions {
 	title?: string;
@@ -53,6 +53,8 @@ export const toD3TreeHtml = (entry: IMixedEntry, {title, filename, extra, distri
 		minified,
 		...extra,
 	};
+	renderHierarchyDiagrams(filename + '.hierarchy.html', options);
+	renderClusterDendrogram(filename + '.cluster.dendrogram.html', options);
 	renderInteractiveTree(filename + '.tree.toggle.html', options);
 	renderIntegratedTree(filename + '.tree.dnd.html', options);
 };

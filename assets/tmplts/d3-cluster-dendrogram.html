@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>A Common HTML Page as for Template</title>
+	<style>
+		html, body {width: 100%; height: 100%; padding: 0; margin: 0;}
+		/* Some Styles */
+		.node circle {fill: #fff;stroke: steelblue;stroke-width: 1.5px;}
+		.node {font: 10px sans-serif;}
+		.link {fill: none;stroke: #ccc;stroke-width: 1.5px;}
+	</style>
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+
+<!-- Custom scripts are here. -->
+<script>
+	var $_data = {
+		'name': 'flare',
+		'children': [{
+			'name': 'analytics',
+			'children': [{
+				'name': 'cluster',
+			}, {
+				'name': 'graph',
+				'children': [{
+					'name': 'BetweennessCentrality',
+				}, {
+					'name': 'LinkDistance',
+				}],
+			}, {
+				'name': 'optimization',
+				'children': [{
+					'name': 'AspectRatioBanker',
+				}],
+			}],
+		}, {
+			'name': 'animate',
+			'children': [{
+				'name': 'Easing',
+			}, {
+				'name': 'FunctionSequence',
+			}, {
+				'name': 'interpolate',
+				'children': [{
+					'name': 'ArrayInterpolator',
+				}, {
+					'name': 'RectangleInterpolator',
+				}],
+			}, {
+				'name': 'Tween',
+			}],
+		}],
+	};
+</script>
+
+<!-- @see https://observablehq.com/@d3/cluster-dendrogram -->
+<!-- @see https://bl.ocks.org/mbostock/7809166 -->
+<script>
+	var width = 1920,
+		height = 1080;
+
+	var cluster = d3.layout.cluster()
+		.size([height, width - 160]);
+
+	var svg = d3.select('body').append('svg')
+		.attr('width', width)
+		.attr('height', height)
+		.append('g')
+		.attr('transform', 'translate(40,0)');
+
+	var root = $_data;
+
+	// d3.json('/mbostock/raw/4063550/flare.json', function (error, root) {
+	// if (error) throw error;
+
+	var nodes = cluster.nodes(root),
+		links = cluster.links(nodes);
+
+	var link = svg.selectAll('.link')
+		.data(links)
+		.enter().append('path')
+		.attr('class', 'link')
+		.attr('d', function (d) {
+			return 'M' + d.source.y + ',' + d.source.x
+				+ 'C' + d.source.y + ',' + d.source.x
+				+ ' ' + d.source.y + ',' + d.target.x
+				+ ' ' + d.target.y + ',' + d.target.x;
+		});
+
+	var node = svg.selectAll('.node')
+		.data(nodes)
+		.enter().append('g')
+		.attr('class', 'node')
+		.attr('transform', function (d) { return 'translate(' + d.y + ',' + d.x + ')'; });
+
+	node.append('circle')
+		.attr('r', 4.5);
+
+	node.append('text')
+		.attr('dx', function (d) { return d.children ? -8 : 8; })
+		.attr('dy', 3)
+		.style('text-anchor', function (d) { return d.children ? 'end' : 'start'; })
+		.text(function (d) { return d.name; });
+	// });
+
+	d3.select(self.frameElement).style('height', height + 'px');
+</script>
+
+</body>
+</html>

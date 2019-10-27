@@ -18,11 +18,23 @@
 var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %>;
 </script>
 
+<script>
+	var queries = new URLSearchParams(window.location.search);
+	// Which kind of the diagram is selected.
+	// [ tree | cluster ]
+	var $_diagram = queries.get('diagram') || 'cluster';
+	// options upon the diagram.
+	// [ horizontal | vertical | radial ]
+	var $_diagram_style = queries.get('style') || 'horizontal';
+	var width = 1920;
+	var height = 1080;
+	// For clusters, there should be offset at the end of the diagrams.
+	var $_offset = 160;
+	var margin = {left: 100, top: 100, right: 50, bottom: 50};
+</script>
+
 <!-- @see https://gist.github.com/Andrew-Reid/c7ae41a98b8cbb38f1febf13deb9d294 -->
 <script>
-	var width = 960;
-	var height = 500;
-	margin = {left: 100, top: 100, right: 50, bottom: 50};
 	var svg = d3.select('body').append('svg')
 		.attr('width', width)
 		.attr('height', height);
@@ -35,7 +47,7 @@ var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %
 		.size([width - margin.left - margin.right, height - margin.top - margin.bottom]);
 	// Cluster
 	var cluster = d3.cluster()
-		.size([height - margin.top - margin.bottom, width - margin.left - margin.right]);
+		.size([height - margin.top - margin.bottom, width - margin.left - margin.right - $_offset]);
 	// Set initial vertical Tree
 	var link = g.selectAll('.link')
 		.data(tree(root).links())
@@ -60,7 +72,6 @@ var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %
 		.attr('x', -10)
 		.attr('text-anchor', 'middle');
 
-	verticalCluster();
 	showcase();
 
 	function verticalTree() {
@@ -118,7 +129,7 @@ var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %
 
 	function horizontalCluster() {
 		g.transition().attr('transform', 'translate(' + margin.left + ',' + margin.right + ')').duration(5000);
-		cluster.size([height - margin.top - margin.bottom, width - margin.left - margin.right]);
+		cluster.size([height - margin.top - margin.bottom, width - margin.left - margin.right - $_offset]);
 		link
 			.data(cluster(root).links())
 			.transition()
@@ -180,13 +191,42 @@ var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %
 		return [(y = +y) * Math.cos(x -= Math.PI / 2), y * Math.sin(x)];
 	}
 
-	var i = 1;
-
 	function showcase() {
-		setTimeout(function () {
-			if (++i % 6 == 4) { horizontalTree(); } else if (i % 6 == 2) { radialTree(); } else if (i % 6 == 5) { horizontalCluster(); } else if (i % 6 == 3) { radialCluster(); } else if (i % 6 == 1) { verticalCluster(); } else { verticalTree(); }
-			showcase();
-		}, 5500);
+		// Crazing #switch-cases :(((.
+		switch ($_diagram) {
+			case 'cluster':
+				switch ($_diagram_style) {
+					case 'vertical':
+						verticalCluster();
+						break;
+					case 'horizontal':
+						horizontalCluster();
+						break;
+					case 'radial':
+					default:
+						radialCluster();
+						break;
+				}
+				break;
+			case 'tree':
+				switch ($_diagram_style) {
+					case 'vertical':
+						verticalTree();
+						verticalCluster();
+						break;
+					case 'horizontal':
+						horizontalTree();
+						break;
+					case 'radial':
+					default:
+						radialTree();
+						break;
+				}
+				break;
+			default:
+				radialCluster();
+				break;
+		}
 	}
 </script>
 

@@ -41,4 +41,10 @@ export const projectProjectsAndSchedules = newProject('Projects and Schedules', 
 			newStep('Customizing'),
 		]),
 	], 'Use mind maps to visualize the current tasks, and even to edit(click with dialog editor).'),
+	newModule('[PRODUCTION] Make this repository professional.', [
+		// To reduce the repository size, as for currently, there are lots of generated codes, which is not reasonable.
+		newTask('Extract the core codes with builtin exporters out as a standalone library for public to use with conveniences.'),
+		newTask('Extract the visualizations templates out as a standalone library, to develop with different purposes.'),
+		newTask('Keep the following parts as the management repo for open sourced projects together with project#Do-Write-it-Down.'),
+	], 'Research for better solutions, and verify if the current solution is reasonable and practicable.'),
 ], 'Projects management with schedules.');

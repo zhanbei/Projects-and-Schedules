@@ -7,6 +7,7 @@ import {projectDocumentCenter} from './biziy-document-center';
 import {pjDevelopersPlayground} from './developers-playground';
 import {projectMarkdownSiteGenerator} from './markdown-site-generator';
 import {projectProjectsAndSchedules} from './projects-and-schedules';
+import {pjUzbeiBlog} from './uzbei-blogs';
 import {pjWebAssistant} from './web-assistant';
 
 const projects = [
@@ -15,15 +16,16 @@ const projects = [
 	projectProjectsAndSchedules,
 	pjDevelopersPlayground,
 	pjWebAssistant,
+	pjUzbeiBlog,
 ];
 
 const project = newProject('Recent Tasks', projects,
 	'The recent tasks unscheduled!');
 
 const md = convertToMarkdown(projects);
-console.log('schedules:', JSON.stringify(projects, undefined, '\t'));
+console.log('projects:', JSON.stringify(projects, undefined, '\t'));
 console.log(md);
-console.log('schedules:', JSON.stringify(projects));
+console.log('projects:', JSON.stringify(projects));
 
 toD3NetworkHtml(project, {distributed: true});
 toD3TreeHtml(project, {distributed: true});

@@ -23,6 +23,13 @@ export const projectProjectsAndSchedules = newProject('Projects and Schedules', 
 	newModule('Designing Entry Properties', [
 		newTask('Done Status', 'see #Documents'),
 	]),
+	newModule('Visualize the Diagrams', [
+		newTask('Indexed Name'),
+		newTask('Projects'),
+		newTask('Status'),
+		newTask('Entry Type'),
+		newTask('Progress'),
+	]),
 	newModule('[VISUALIZATION] Checkout MindMaps', [
 		newTask('Investigating Naotu', '', [
 			newStep('Run Offline and Investigate Naotu'),

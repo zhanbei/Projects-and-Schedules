@@ -5,6 +5,7 @@ import {convertToMarkdown} from '../exporters/to-markdown';
 import {newProject} from '../types/project';
 import {projectDocumentCenter} from './biziy-document-center';
 import {pjDevelopersPlayground} from './developers-playground';
+import {pjDoWriteItDown} from './do-write-it-down';
 import {projectMarkdownSiteGenerator} from './markdown-site-generator';
 import {projectProjectsAndSchedules} from './projects-and-schedules';
 import {pjUzbeiBlog} from './uzbei-blogs';
@@ -17,6 +18,7 @@ const projects = [
 	pjDevelopersPlayground,
 	pjWebAssistant,
 	pjUzbeiBlog,
+	pjDoWriteItDown,
 ];
 
 const project = newProject('Recent Tasks', projects,

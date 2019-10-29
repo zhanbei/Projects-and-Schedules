@@ -11,6 +11,8 @@ const SOLUTION: IEntrySets = 'SOLUTION';
 
 const RESEARCH: IEntrySets = 'RESEARCH';
 
+const DEPENDENCY: IEntrySets = 'DEPENDENCY';
+
 export const ENTRY_SETS = {
 	PROJECT,
 	SESSION,
@@ -20,4 +22,6 @@ export const ENTRY_SETS = {
 	SOLUTION,
 
 	RESEARCH,
+
+	DEPENDENCY,
 };

@@ -1,36 +1,41 @@
 'use strict';
 
-import {newModule} from '../types/modules';
+import {newModule, nextModule} from '../types/modules';
 import {newProject} from '../types/project';
 import {newResearch} from '../types/research';
-import {newSchedule} from '../types/schedules';
+import {nextImportantCasualSchedule, nextRequiredSchedule} from '../types/schedules';
 import {newStep} from '../types/steps';
-import {newTask} from '../types/task';
+import {newTask, nextTask} from '../types/task';
 
-export const s = newSchedule('2h');
-export const s2 = newSchedule('2h', +new Date('2019-10-25'));
+const due = nextRequiredSchedule;
 
 export const projectProjectsAndSchedules = newProject('Projects and Schedules', [
 	// Done
-	newTask('Initializing Project'),
+	nextTask('Initializing Project', due(
+		'2h', 100)),
 	// Going with Versions
-	newTask('Typing Entities and Develop Their Relations'),
+	nextTask('Typing Entities and Develop Their Relations', due(
+		'3h', 100)),
 	// Going with Versions
-	newTask('Documenting'),
+	nextTask('Documenting', due(
+		'3h', 100)),
 	newModule('Requirements and Designs', [
 		newResearch('Think about the problems about delaying and multiple schedules.'),
 	], ''),
-	newModule('Designing Entry Properties', [
+	nextModule('Designing Entry Properties', due(
+		'2h'), [
 		newTask('Done Status', 'see #Documents'),
 	]),
-	newModule('Visualize the Diagrams', [
+	nextModule('Visualize the Diagrams', due(
+		'3h', 30), [
 		newTask('Indexed Name'),
 		newTask('Projects'),
 		newTask('Status'),
 		newTask('Entry Type'),
 		newTask('Progress'),
 	]),
-	newModule('[VISUALIZATION] Checkout MindMaps', [
+	nextModule('[VISUALIZATION] Checkout MindMaps', nextImportantCasualSchedule(
+		'2d', 10), [
 		newTask('Investigating Naotu', '', [
 			newStep('Run Offline and Investigate Naotu'),
 			newStep('Customizing'),
@@ -41,7 +46,8 @@ export const projectProjectsAndSchedules = newProject('Projects and Schedules', 
 			newStep('Customizing'),
 		]),
 	], 'Use mind maps to visualize the current tasks, and even to edit(click with dialog editor).'),
-	newModule('[PRODUCTION] Make this repository professional.', [
+	nextModule('[PRODUCTION] Make this repository professional.', nextImportantCasualSchedule(
+		'4d'), [
 		// To reduce the repository size, as for currently, there are lots of generated codes, which is not reasonable.
 		newTask('Extract the core codes with builtin exporters out as a standalone library for public to use with conveniences.'),
 		newTask('Extract the visualizations templates out as a standalone library, to develop with different purposes.'),

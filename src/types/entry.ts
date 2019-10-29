@@ -47,6 +47,7 @@ export interface IBaseEntry {
 	// Extra information?
 	extra?: string[];
 
+	schedule?: ISchedule;
 	// The real deadline.
 	deadline?: number;
 	// Predicted schedule with predicted deadline.
@@ -71,3 +72,6 @@ export interface IBaseEntry {
 // Define types and constructors, to corresponding.
 export const newTypedEntry = <T extends IMixedEntry>(set: IEntrySets) =>
 	(name: string, description?: string, tasks?: IMixedEntry[], dependents?: IMixedEntry[]): T => ({name, description, set, children: tasks, dependents}) as T;
+
+export const nextTypedEntry = <T extends IMixedEntry>(set: IEntrySets) =>
+	(name: string, schedule?: ISchedule, description?: string, tasks?: IMixedEntry[], dependents?: IMixedEntry[]): T => ({name, schedule, description, set, children: tasks, dependents}) as T;

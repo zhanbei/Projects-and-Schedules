@@ -6,9 +6,14 @@
 	<style>
 		html, body {width: 100%; height: 100%; padding: 0; margin: 0;}
 		/* Some Styles */
-		.node circle {fill: #fff;stroke: steelblue;stroke-width: 1.5px;}
+		.node circle {stroke: steelblue;stroke-width: 1.5px;}
 		.node {font: 10px sans-serif;}
 		.link {fill: none;stroke: #ccc;stroke-width: 1.5px;}
+		circle.cls-circle {}
+		text.cls-circle-text {fill: white;}
+		text.cls-project-text {font-weight: bold;font-size: 26px;}
+		text.cls-module-text {font-weight: bold;font-size: 18px;;}
+		text.cls-task-text {fill: purple;}
 	</style>
 	<script src="https://d3js.org/d3.v3.min.js"></script>
 </head>
@@ -22,11 +27,10 @@ var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %
 <!-- @see https://observablehq.com/@d3/cluster-dendrogram -->
 <!-- @see https://bl.ocks.org/mbostock/7809166 -->
 <script>
-	var width = 1920,
-		height = 1080;
+	var width = 2440, height = 1500;
 
 	var cluster = d3.layout.cluster()
-		.size([height, width - 160]);
+		.size([height, width - 1000]);
 
 	var svg = d3.select('body').append('svg')
 		.attr('width', width)
@@ -59,14 +63,38 @@ var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %
 		.attr('class', 'node')
 		.attr('transform', function (d) { return 'translate(' + d.y + ',' + d.x + ')'; });
 
-	node.append('circle')
-		.attr('r', 4.5);
+	// @see https://stackoverflow.com/questions/13615381/d3-add-text-to-circle
+	/*Create and place the "blocks" containing the circle and the text */
+	var elemEnter = node.append('g');
+	// .attr('transform', function (d) {return 'translate(' + d.x + ',80)';});
+
+	/*Create the circle for each block */
+	var circle = elemEnter.append('circle')
+		.attr('class', 'cls-circle')
+		.attr('r', function (d) {return d.circle.radius || 5;})
+		.attr('stroke', function (d) {return d.circle.stroke || '#999';})
+		.attr('fill', function (d) {return d.circle.fill || '#666';});
+
+	/* Create the text for each block */
+	elemEnter.append('text')
+		.attr('class', 'cls-circle-text')
+		.attr('text-anchor', 'middle')
+		.attr('dy', function (d) {return d.circle.dy || 3;})
+		.attr('font-size', function (d) {return d.circle.radius * 1.5;})
+		.text(function (d) {return d.circle.text;});
+
+	// node.append('circle')
+	// 	.attr('r', function (d) {return d.circle.radius;});
 
 	node.append('text')
-		.attr('dx', function (d) { return d.children ? -8 : 8; })
-		.attr('dy', 3)
-		.style('text-anchor', function (d) { return d.children ? 'end' : 'start'; })
-		.text(function (d) { return d.name; });
+		.attr('class', function (d) {return d.text.class || '';})
+		.attr('dx', function (d) { return d.text.dx || 8; }).attr('dy', function (d) {return d.text.dx ? Math.floor(d.text.dx / 3) : 3;})
+		.attr('font-size', function (d) { return d.text.size + 'px'; })
+		.style('fill', function (d) {return d.text.color || '#666';})
+		.style('text-anchor', 'start')
+		.text(function (d) { return d.name; })
+		.append('svg:title')
+		.text(function (d) { return d.description; });
 	// });
 
 	d3.select(self.frameElement).style('height', height + 'px');

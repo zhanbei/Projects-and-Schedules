@@ -10,13 +10,13 @@ const _histories = new Map<any, boolean>();
 
 const newMeta = (set: IEntrySets, d: IMixedEntry): INodeMeta => {
 	const text = (d.schedule ? (d.schedule.duration || d.schedule.progress === 100 ? '√' : d.schedule.progress || d.schedule.total || 'x') : 'x') + '';
-	const color = d.schedule ? (d.schedule.duration || d.schedule.progress === 100 ? 'green' : (d.schedule.progress ? 'purple' : (d.schedule.total ? 'brown' : undefined))) : undefined;
+	const color = d.schedule ? (d.schedule.duration || d.schedule.progress === 100 ? 'green' : (d.schedule.progress ? 'purple' : (d.schedule.total ? 'gray' : undefined))) : undefined;
 	switch (set) {
 		case ENTRY_SETS.PROJECT:
 			return newNodeMeta(newNodeCircle(RADIUS.LARGE, '#666', color || 'green', text, RADIUS.LARGE * 1.2), newNodeText('cls-project-text', '#555', 36));
 		case ENTRY_SETS.DEPENDENCY:
 		case ENTRY_SETS.MODULE:
-			return newNodeMeta(newNodeCircle(RADIUS.MEDIUM, '#666', color || '#777', text), newNodeText('cls-module-text', '#777', 20));
+			return newNodeMeta(newNodeCircle(d.children && d.children.length > 0 ? RADIUS.MEDIUM : RADIUS.MEDIUM_EMPTY, '#666', color || '#777', text), newNodeText('cls-module-text', '#777', 20));
 		case ENTRY_SETS.TASK:
 		case ENTRY_SETS.STEP:
 		default:

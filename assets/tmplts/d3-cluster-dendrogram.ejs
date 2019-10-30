@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
     <title><%= title %></title>
 	<style>
-		html, body {width: 100%; height: 100%; padding: 0; margin: 0;}
+		html, body {width: 100%; height: 100%; padding: 0; margin: 0; background: #eee;}
 		/* Some Styles */
 		.node circle {stroke: steelblue;stroke-width: 1.5px;}
 		.node {font: 10px sans-serif;}
@@ -79,8 +79,8 @@ var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %
 	elemEnter.append('text')
 		.attr('class', 'cls-circle-text')
 		.attr('text-anchor', 'middle')
-		.attr('dy', function (d) {return d.circle.dy || 3;})
-		.attr('font-size', function (d) {return d.circle.text.length > 2 ? d.circle.radius : d.circle.radius * 1.5;})
+		.attr('dy', function (d) {return d.circle.text.length > 3 ? d.circle.dy * 0.8 : d.circle.dy || 3;})
+		.attr('font-size', function (d) {return d.circle.text.length > 3 ? Math.floor(d.circle.radius * 0.8) : (d.circle.text.length > 2 ? d.circle.radius : d.circle.radius * 1.5);})
 		.text(function (d) {return d.circle.text;});
 
 	// node.append('circle')

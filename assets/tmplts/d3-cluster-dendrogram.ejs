@@ -80,7 +80,7 @@ var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %
 		.attr('class', 'cls-circle-text')
 		.attr('text-anchor', 'middle')
 		.attr('dy', function (d) {return d.circle.dy || 3;})
-		.attr('font-size', function (d) {return d.circle.radius * 1.5;})
+		.attr('font-size', function (d) {return d.circle.text.length > 2 ? d.circle.radius : d.circle.radius * 1.5;})
 		.text(function (d) {return d.circle.text;});
 
 	// node.append('circle')

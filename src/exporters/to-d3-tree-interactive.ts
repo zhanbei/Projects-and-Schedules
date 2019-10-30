@@ -13,7 +13,7 @@ const newMeta = (set: IEntrySets, d: IMixedEntry): INodeMeta => {
 	const color = d.schedule ? (d.schedule.duration || d.schedule.progress === 100 ? 'green' : (d.schedule.progress ? 'purple' : (d.schedule.total ? 'brown' : undefined))) : undefined;
 	switch (set) {
 		case ENTRY_SETS.PROJECT:
-			return newNodeMeta(newNodeCircle(RADIUS.LARGE, '#666', color || 'green', text), newNodeText('cls-project-text', '#555', 36));
+			return newNodeMeta(newNodeCircle(RADIUS.LARGE, '#666', color || 'green', text, RADIUS.LARGE * 1.2), newNodeText('cls-project-text', '#555', 36));
 		case ENTRY_SETS.DEPENDENCY:
 		case ENTRY_SETS.MODULE:
 			return newNodeMeta(newNodeCircle(RADIUS.MEDIUM, '#666', color || '#777', text), newNodeText('cls-module-text', '#777', 20));

@@ -9,24 +9,33 @@ import {newRequiredSchedule} from '../types/schedules';
 // - predicted as 2 hours
 // - 100% required
 const newDefaultTaskSchedule = () => newRequiredSchedule(
-	'2h', undefined, 0,
+	'', undefined, 0,
 );
 
 // How many hours total.
+// FIX-ME Calculate current progress:
+// 1. hours left;
+// 2. total hours;
+// 3. tasks left;
+// 4. total tasks;
 const unifySchedules = (task: IMixedEntry, depth: number): number => {
 	// Stop when dead loop detected.
 	if (depth > 100) {throw new Error('Too deep structure: ' + depth);}
 
-	task.schedule = task.schedule || newDefaultTaskSchedule();
+	const ts = task.schedule = task.schedule || newDefaultTaskSchedule();
+	ts.progress = ts.progress || 0;
 	if (!task.children || task.children.length === 0) {
-		const {total, progress} = task.schedule;
-		task.schedule.progress = progress || 0;
-		task.schedule.total = total || '2h';
-		return parseTotal(task.schedule.total);
+		// Set the default predicted (2 )hours for a regular task.
+		ts.total = ts.total || '2h';
+		return parseTotal(ts.total) * (1 - ts.progress / 100);
 	}
 	const total = task.children.map(task => unifySchedules(task, depth + 1)).reduce((p, c) => p + c, 0);
+	if (ts.total) {
+		// The module is already assigned a predicted hours, which is preferred currently.
+		return parseTotal(task.schedule.total) * (1 - ts.progress / 100);
+	}
 	task.schedule.total = withTotal(total);
-	return total;
+	return total * (1 - ts.progress / 100);
 };
 
 export const doUnifySchedules = (task: IMixedEntry): any => unifySchedules(task, 0);

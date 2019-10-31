@@ -4,6 +4,9 @@ import {parseTotal, withTotal} from '../helpers/task-total';
 import {IMixedEntry} from '../types/entry';
 import {newRequiredSchedule} from '../types/schedules';
 
+// Set the default predicted (2 )hours for a regular task.
+const DEFAULT_TOTAL_HOURS_PER_TASK = '2h';
+
 // By default, all tasks are:
 // - 0 percent of progress
 // - predicted as 2 hours
@@ -26,7 +29,7 @@ const unifySchedules = (task: IMixedEntry, depth: number): number => {
 	ts.progress = ts.progress || 0;
 	if (!task.children || task.children.length === 0) {
 		// Set the default predicted (2 )hours for a regular task.
-		ts.total = ts.total || '2h';
+		ts.total = ts.total || DEFAULT_TOTAL_HOURS_PER_TASK;
 		return parseTotal(ts.total) * (1 - ts.progress / 100);
 	}
 	const total = task.children.map(task => unifySchedules(task, depth + 1)).reduce((p, c) => p + c, 0);

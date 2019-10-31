@@ -29,15 +29,15 @@ const unifySchedules = (task: IMixedEntry, depth: number): number => {
 	ts.progress = ts.progress || 0;
 	if (!task.children || task.children.length === 0) {
 		// Set the default predicted (2 )hours for a regular task.
-		ts.total = ts.total || DEFAULT_TOTAL_HOURS_PER_TASK;
-		return parseTotal(ts.total) * (1 - ts.progress / 100);
+		ts.$total = ts.total || DEFAULT_TOTAL_HOURS_PER_TASK;
+		return parseTotal(ts.$total) * (1 - ts.progress / 100);
 	}
 	const total = task.children.map(task => unifySchedules(task, depth + 1)).reduce((p, c) => p + c, 0);
 	if (ts.total) {
 		// The module is already assigned a predicted hours, which is preferred currently.
-		return parseTotal(task.schedule.total) * (1 - ts.progress / 100);
+		return parseTotal(ts.total) * (1 - ts.progress / 100);
 	}
-	task.schedule.total = withTotal(total);
+	ts.$total = withTotal(total);
 	return total * (1 - ts.progress / 100);
 };
 

@@ -25,7 +25,15 @@ export interface ISchedule {
 	deadline?: number;
 
 	// The expected duration calculated.
+	// The real total set by user, which is immutable.
 	total: string;
+
+	// [CACHE_VALUE] The resolved(calculated) total.
+	// Use "$" or "_" as prefix?
+	// Use "_" for as it would in other languages.
+	// No, use "$" for whatever reason, since it looks prettier.
+	// Like "$children" looks better than "_children" perhaps. l~):)
+	$total: string;
 
 	// The current progress.
 	progress?: number;
@@ -50,7 +58,7 @@ const due = (priority: number, total: string, urgency?: number, deadline?: numbe
 		progress = pro_dur;
 	}
 	return {
-		priority, total,
+		priority, total, $total: total,
 		deadline, duration, progress, from, to,
 		createdTime: +new Date(),
 	};

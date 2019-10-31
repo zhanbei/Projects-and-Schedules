@@ -10,13 +10,12 @@ export interface INodeMeta {
 }
 
 export interface INodeCircle {
-	radius: number;
-	stroke: string;
-	fill: string;
-
-	dy: number;
 	text: string;
+	radius: number;
 	size?: number;
+	fill?: string;
+	stroke?: string;
+	dy: number;
 }
 
 export interface INodeText {
@@ -28,7 +27,7 @@ export interface INodeText {
 }
 
 // circle: radius, text size,
-export const newNodeCircle = (radius: number, stroke: string, fill: string, text: string, size?: number, dy?: number): INodeCircle => ({
+export const newNodeCircle = (text: string, radius: number, fill?: string, size?: number, stroke?: string, dy?: number): INodeCircle => ({
 	radius, dy: dy || radius / 5 * 2,
 	stroke, fill, text, size,
 });

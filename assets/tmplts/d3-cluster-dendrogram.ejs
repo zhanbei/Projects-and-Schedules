@@ -30,7 +30,7 @@ var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %
 	var width = 2440, height = 1500;
 
 	var cluster = d3.layout.cluster()
-		.size([height, width - 1000]);
+		.size([height, width - 1500]);
 
 	var svg = d3.select('body').append('svg')
 		.attr('width', width)

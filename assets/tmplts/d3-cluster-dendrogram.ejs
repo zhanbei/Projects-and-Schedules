@@ -6,7 +6,7 @@
 	<style>
 		html, body {width: 100%; height: 100%; padding: 0; margin: 0; background: #eee;}
 		/* Some Styles */
-		.node circle {stroke: steelblue;stroke-width: 1.5px;}
+		.node circle {stroke-width: 2px;}
 		.node {font: 10px sans-serif;}
 		.link {fill: none;stroke: #ccc;stroke-width: 1.5px;}
 		circle.cls-circle {}
@@ -72,7 +72,7 @@ var $_data = <%- JSON.stringify($data, undefined, minified ? undefined : '\t') %
 	var circle = elemEnter.append('circle')
 		.attr('class', 'cls-circle')
 		.attr('r', function (d) {return d.circle.radius || 5;})
-		.attr('stroke', function (d) {return d.circle.stroke || '#999';})
+		.attr('stroke', function (d) {return d.circle.fill || d.circle.stroke || '#999';})
 		.attr('fill', function (d) {return d.circle.fill || '#666';});
 
 	/* Create the text for each block */
